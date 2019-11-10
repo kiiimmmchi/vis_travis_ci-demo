@@ -23,7 +23,6 @@ build-app:
     expire_in: 1 week
 
 test-app:
-  extends: .service1
   stage: test
   script:
     - mvn test -B
