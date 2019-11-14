@@ -1,0 +1,38 @@
+sudo: required
+language: java
+jdk: openjdk8
+services:
+- docker
+env:
+  global:
+#  - secure: KvmFw2cyRcNV/zMWz+QDmb99q2e7bOze3DI03OOAnIr8nvPaQLNBF4UM5ArDn5I0fYNwSf7MgjTWCxSuA6ll3rODXASwd3DeeVfcmH+p0qnQQGa3v6VLCPeSXalzETOpgsiYkiDGeq73Ny6fC0L1DcDTYpbOk5/0X+z2S8pGZE5gK9Zu20xv6ZcdS+eLaaCRyj/FZbJZAHI5oSnIn9CSvjUfuSzZly2mw2Yn7scHfqwSBBwxxCbBGkloTgdG6wPwo5VOpPCuM0m5sdMSV4Fvo18b5cnetSQtqKX+cQsKQh+aHIQgbJBj8jdf9/U6gwuZ5dOMXdVYJl3lzEtaHQ8FkTK8R9gh0R2Ttw38TLGkSday54bE5o8k6gyUyNxpkgvOdGV1dWSrvbNsgpLQrGTBd7+hxDZiZOy3Z9GAA3L/5fhneixOSz0BpPDTkdb1h2G5FQrmD1G0K4JYmpSPPibZp1MQl9Y8Th75jYhPxuUkvVl0ShvHTtQfe3yjtYJqjVypqe49kxNhgzG8Sb3i9go1EbEF3KTpm/ppo34rL6+E6qIvkS3ydmULfzhkfDYy9EK39ZDlKBZ6ibTHxOPeWZVQf/ukcaQeKx3uSqJQApVV6HIHnTCs8eW9cdKDNb7KifFiPKYYoyX2SRu4py5qgbCe1+wZwLv+9xjNsaCn/3f9bH8=
+  - secure: DvnJOFGg8T3qoB8URKRhRIW+1wA/Jp8A7GvaEl5VL6mharinO55XwKbCM/b2hmS4qHr50VYp4lSHbohAmuZpwQCzEKq93crlN2v4PeTmOwi6l0dKgyO/bcr6+TiVx2VEfGON409Sq8VTBXU9OuHw2dkUziMB2WnJttD5cqt5Q3hGF+WhOmzHDb4J5IYnmkMic088e9TlJeUaN2XrCcNSEimuPnt1QVxTMkUN0UVI+mb0ra+oG3Q6aiY2UCOq3Ea1qPvrEV2Bu+0dSgnPNCISWPEPrmsnxUo1HIpWsHg2/fXDSm8odckFjh9VjqGQZy0APtW3wicuDrhGyWqh7C6wF+dzd8fgKeSYvjUAqbnPyxSG7rv4+tr+XHRzfpVJ7qoHnaaqoSqFBuIz+JDI/N2ZymxNNVzayfxhFRvKnDwPReGIsAe6RYk61xkI/tG2AJK+Ty4MPioih8w91fvdm4LraanQQB3VEheVwPgdTdydAk8RBjh/jFC7GOSBudGZLLul1k9M6biqdhjOrapzRW8RifGb54EVWYgFdHF3VzlJ3E9FtBayXyxRJfrTHXWNgVPSSupgGl3i3y5vcX3+pg+jT6PjUY+4ERDlWaMfE++/KiPbKciIN4WMAGnM50LKKoceNT6eGTyr6R5bAA8LABwaeVoUgT6e0zDfvpH3Sd7HQfk=
+  - secure: KgU4nMq/Hn4Tj1yFHMdMLGpGA0GLOBni/5n/yLCExXX8WoCb46ARiSkpgEEotLI0PW1NORfA3az+k1muHEarf5wQ/WKV7Gv+0t2Y/i1VhHke2mN1/F8BSqPoduyywmYeK5aolsOA3LP39qI9VMczYyx62K0XP66QCz8z/0tqUbKogcCf5lLw5edHmC1xxhh2dsEcse4DaYDGvstKQ2rw0c0z7GBAvwJnEKvAewdZuTkfZEvw5plkhAsRoj6JtGupmMj9sQI2HutOrZ3uDtF33KWzL7Ush8diSsOd8KRkLPhz/Tsh7CDG/GvikRwqX1tNdX9q4qgYkqTHoho+vMxunTaVizD0WNH4VAQYJ9IgsBXgDicmdbxk1pBwU49g5IxzBzC3pX7pafoJa7xXb3rbQSe1GzLIsbIq6Ol/UoXoMk+uHvXWDUROC8+UiA1gpp5cEdMP0T6RojSBrufqsmMXDEElRDuNQmHtHj1Um5WzSNjGDyVQ5uQhfyLK9v3m+NrkUWZpzCB8c1EnruCIy5/AtQAV+W0q5NyVM//m8Yx7xY0fJDtskOMQtFHgKY0mEpioanlI4eYPfkZOyw3ap6r1YvroYu62/uESP7M3N0IwFC5YBioHvY2ivxy12fbiKO+JlpTTqh46satOz/YvJyBUFR5CP80f6uWr6osRieMYoXI=
+  - secure: DOm3YZjySgHUqZJQ1WJMOOsP9WHup8Iec/W6kh5c6auz4sZxQ73sPiP+ctbJpqq696i/5KZiZHpuiCTOCOXh4UUroZsgw1LK34M7Ix+nOfyWDuwOyNraHFkSk/snsk/Ov0XXkYcjU/93+MKjrobBDEqwcrloUn2m/spygtPAifb0nopgDpm5YtBRUBLh8mD7xlUA+ZO8nUxkzBWghqcURLBSjdHlR0oEP9Se4WrDAEUHSLA6hPoHUlx0yKbUtzsf9iVVf5M6kTwzRm4x75QzU5QbNGWdRPG3LyZ9k/X/r9/n+aNP+8dkMvkf+sa4QmEIvpmgD3Jg7Z/SnJO2B9zvhWJcqZeXF6mAJW571BLYpTey/C1gqbt8y1U6j1CKRXFMGKTX74rZ+dYZLOkyO9yUIy+lY6EbQf1hBkrAh239IA+Hg8zi3eNh8pxWt0Uwsp36Wtza0pmizUaSG9P+ekOy26uac5yNYI+qXfzh7g+mTCwniWl/u6X/pS+POy5wpqY4oak5pV1cFPxJpSzk+OsTMkMmpGwWTEOqAGeEAXNroz7QBcgsUhE3MQT6ghYozlw36U2nc9dNKusoOdv0NPKV0OfwqWga0IFXeV+q/HXYzFvsOAca4sX8PUPxiMK3UPt22ErlPfOsOiHZCzeq80ou/EqEnXHQC8qKCfXkUhfgmas=
+  - COMMIT=${TRAVIS_COMMIT::7}
+#addons:
+#  sonarcloud:
+#    organization: kiiimmmchi
+#    token:
+#      secure: "$SONAR_TOKEN"
+script:
+- mvn test -B
+- mvn package -DskipTests
+#- "./mvnw clean install -B"
+#- "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
+cache:
+  directories:
+  - "$HOME/.m2/repository"
+#  - "$HOME/.sonar/cache"
+after_success:
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH;
+  fi`
+- export IMAGE_NAME=kimchitran/vis_travis_ci_demo
+- docker build -t $IMAGE_NAME:$COMMIT .
+- docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME
+deploy:
+  provider: heroku
+  api_key: "$HEROKU_API_KEY"
+  app: traviscitestbykim
