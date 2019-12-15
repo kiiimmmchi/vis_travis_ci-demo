@@ -11,7 +11,7 @@ public class BuildserverdemoApplication {
 
 	@RequestMapping("/")
 	public String helloWorld(){
-		return "Hello Buildservers! MAMA";
+		return "Hello Buildservers! It's Travis CI!";
 	}
 
 	public static void main(String[] args) {
