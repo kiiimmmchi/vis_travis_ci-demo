@@ -13,7 +13,7 @@ cache: #cache content that does not often change
   - "$HOME/.m2/repository"
 script:
 - mvn surefire:test -B
-after_success:
+after_success: #build succeeded
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH;
   fi`
@@ -22,6 +22,6 @@ after_success:
 - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
 - docker push $IMAGE_NAME
 deploy:
-  provider: heroku
+  provider: heroku #40 supported providers like AWS LAMBDA and Google App Engine + custom
   api_key: "$HEROKU_API_KEY"
   app: traviscitestbykim
