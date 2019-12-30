@@ -1,20 +1,18 @@
-#sudo: required
-language: java
+language: java #over 30 supported languages such as C, Go, Python, Ruby or Scala
 jdk: openjdk8
-services:
-- docker
-env:
+services: #set up databases and other services in the Travis CI environment
+- docker #mysql, mongodb, rabbitmq, ...
+env: #environment variables
   global:
   - COMMIT=${TRAVIS_COMMIT::7} #refers to the first 7 chars of the git commit id
   - secure: N5c5AFx7fVFyMR+g8kEGyFMORSlMqpj1JPBUwmG6YtXveX4JYGDzHugEh2/q6QbfAnWpLhdd9mN+feHA+XbDF8DXy7LK6oY5Qlr7OX/bzy5exRynSIQK+k+CJgJybfJ8wU31mVNEGGoJ5u13vLnu6dqaLUhe0C6vyE/ZCcV+IOkAwV2z0tb6DJ8xx62yvB41CiSSVru+QGmHKnVpkbQU5hGEtfV6HX/ueKdbAwMidtF1jIRjMLgJJsss0zlIGAaQHzvXqgEkWe8KLD0RF0gkTOnL5TeaK9vZEGuavbgIK9h4ylLRRTPJSbTF/cZgyUT2r4Yjpu5JTbkdqdkbL6rJ/Q3cGcV45D5nSOM3vvaIZLPQX1+ej8bwUx31IaRKcNKyaIZtkX/OQXTDKUwnchTnvLDUTqqCXkJbuw3HW80TDA6csd+hxtKSfYHYsDWfZcSPGuV9o/b6i1vWUyYX8792biTZ5XqDVh6Fg30fHOTMeabSbA8nJwtl4NfYE5wukiyFEChuRHDaHzMlHrudRzAMls/zZBKLfPpNd7BSDGVHDrSjlUYqd6dnLaXYRVnT+9ITv904GwuKbXQ1TfRhxoMZqN2awUO2ud8WYxBozauSr2K5TBwdYeCZiNbAGEUE9XobgN4+zUgr1e6u1C4NcX8PqctLwNKncMASTc2T9oYUMtk=
   - secure: XDm/+zqQvVXgc6dhpXDIzAECd/QxXK9DIgu7HHTsxCe1uVxBqarCUJcalbtFCRj+mY1tAEIo7jMu+mYOqu31RwG0Fau0QuK5wzhNFEmulfMQ8BVSt2ZSvorppbbDjrFaApjg4Pv8UO6eiFK2+4ErkwZeUbcSEmE8sOHRgWU2mOkjBd+oKHLan7C8zTEEN+APiUDTEScLV0l9lxdhafBT18qrs76872cmF5M5mXgbjxCPWULoQ3mHt96NN1AC92P2IpoNbwYwzNfFZwSpieZN5tDjcGCyWvtTRBEbaW9fgLxYQqBi1c/WSrZnzT5ZLmSW5Qm6FDKvgB1OvcJDkjpF+SbsvBEPk1VRAj5NWiajlzOJc/Xcb8o5gzFsPgl1jPAxX9ZHnFkOt+GyUH7bTp/Fm9DDjkwkESbJ8dEb9EliXJwjjDkiSrKgz0jgSfxyumDimKnIqDUSOPNtaB+wZw/Auj9lRvx+eN5TBn8+b6eNvEBoYULwgTHd4bNjOSJHPrYnbIvLp3BAJZ92UFdGzuuTuCAPuQjWXnFtwOpDIKDMKtr3q/G4ciGPGNzgNHZJdFeHWpBPHeeoHzE5lLRwJOAOLg/nvOtQz+TdfQtS65CHSRQ5x7ndKKoBqcY3KPsdmLW+iXQcqzstr+lK95kr4bpRwSBlCOSlgXsIdtQsdZ2ke8A=
   - secure: HhpzNVE5Zm3q8eIy85K3cveazGaS5SA6zuP1VIwPEvu44oQamQbElyZEb9EGAVU9pZoZcUsTYxoWWzHn4UUV7mBigJjrjXSDnaJrFyhdTSyuk+Pp3V0tSDPv1S5Kn1DrPPhX/gsebgnFh9e0We/hdAtv9jwkQqY8G9kvSaM/EiNK63c8QjQNo2FE998E0yHdHA5TX9tGWSLfO+6+sctjhcPqs/ojZl68y1ZEjr13drc66pJSnaXRBF+4KZCx9Wa4X+Szr7HvKzwvfwwWcxq0v1td9XItrWolWmOFzDcjcuHUCDfEqLziQkOUxKuwyc5ouypuwaiescrJrwKrg1omxVRuDH0Mrc5w8EebMNS1QVFrQdR6JRKCAwno6yg3+uk/UksT3rez5Pr+7HIR7TLrfRYJmaH7CESzaKuVpLpxTgCVfV0r5CVtec7EVxoks6Sb7H8M9eQJGRtUM6NCqAvVV1cfUqzwePy36gDxsfNB6zVrBJi92e1yagfX6ATq0aqi0zo5EiOfW1tEI1C7pap4TpS8yLnPvBhnmdpo7BIgdML/rRWu1NJdAnovz3SrwIITBNAVZWaZdReixIC8AcSxMU2Hkl9clY1r9twhpu4kZa3g2VYNmtlG10k0Iuf0lyl+oa7r5XD0gTpVV29m7aPwmQkHU93IZD4mYKBR3N+rUwU=
-script:
-#- mvn package -DskipTests -B
-- mvn surefire:test -B
-cache:
+cache: #cache content that does not often change
   directories:
   - "$HOME/.m2/repository"
+script:
+- mvn surefire:test -B
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH;
